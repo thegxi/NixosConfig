@@ -10,6 +10,7 @@ let
   ];
 
   sharedHomeModules = [
+    ../home
   ]
   ++ (builtins.attrValues self.homeManagerModules);
 

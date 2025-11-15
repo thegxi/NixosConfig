@@ -4,6 +4,10 @@
   inputs = {
     flake-parts.url = "github:hercules-ci/flake-parts";
     nixpkgs.url = "github:NixOS/nixpkgs/nixos-25.05";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
@@ -17,7 +21,7 @@
 	./hosts
 	{ _module.args = { inherit inputs self nixpkgs; }; }
       ];
-      systems = [ "x86_64-linux" "aarch64-linux" "aarch64-darwin" "x86_64-darwin" ];
+      systems = [ "x86_64-linux" ];
       perSystem = { config, self', inputs', pkgs, system, ... }: {
         # Per-system attributes can be defined here. The self' and inputs'
         # module parameters provide easy access to attributes of the same
@@ -27,7 +31,7 @@
         # The usual flake attributes can be defined here, including system-
         # agnostic ones like nixosModule and system-enumerating ones, although
         # those are more easily expressed in perSystem.
-
+	homeManagerModules = import ./modules/home-manager;
       };
     };
 }
