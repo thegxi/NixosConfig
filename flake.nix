@@ -8,6 +8,10 @@
       url = "github:nix-community/home-manager/release-25.05";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+    niri = {
+      url = "github:sodiboo/niri-flake";
+      # inputs.niri-unstable.follows = "niri-unstable";
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:

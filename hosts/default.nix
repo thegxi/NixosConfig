@@ -7,10 +7,12 @@
 let
   sharedOSModules = [
     ../os
+    inputs.niri.nixosModules.niri
   ];
 
   sharedHomeModules = [
     ../home
+    inputs.niri.homeModules.niri
   ]
   ++ (builtins.attrValues self.homeManagerModules);
 
