@@ -2,6 +2,7 @@
 {
   imports = [
     ./niri
+    ./fuzzel.nix
   ];
   home.packages = with pkgs; [
     swww
