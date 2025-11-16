@@ -7,6 +7,7 @@
 let
   sharedOSModules = [
     ../os
+    ../nix
     inputs.niri.nixosModules.niri
     inputs.stylix.nixosModules.stylix
   ];
