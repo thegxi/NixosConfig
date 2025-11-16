@@ -8,11 +8,13 @@ let
   sharedOSModules = [
     ../os
     inputs.niri.nixosModules.niri
+    inputs.stylix.nixosModules.stylix
   ];
 
   sharedHomeModules = [
     ../home
     inputs.niri.homeModules.niri
+    inputs.stylix.homeModules.stylix
   ]
   ++ (builtins.attrValues self.homeManagerModules);
 

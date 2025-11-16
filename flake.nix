@@ -12,6 +12,10 @@
       url = "github:sodiboo/niri-flake";
       # inputs.niri-unstable.follows = "niri-unstable";
     };
+    stylix = {
+      url = "github:nix-community/stylix/release-25.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, ... }@inputs:
