@@ -6,7 +6,7 @@
 {
   imports = [
     ./programs
-    ./stylix.nix
+    #./stylix.nix
   ];
 
   home = {

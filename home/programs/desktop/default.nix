@@ -1,7 +1,7 @@
 { inputs, pkgs, ... }:
 {
   imports = [
-    ./niri
+    #./niri
     ./fuzzel.nix
   ];
   home.packages = with pkgs; [

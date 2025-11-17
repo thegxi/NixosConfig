@@ -14,8 +14,7 @@ let
 
   sharedHomeModules = [
     ../home
-    inputs.niri.homeModules.niri
-    inputs.stylix.homeModules.stylix
+    #inputs.stylix.homeModules.stylix
   ]
   ++ (builtins.attrValues self.homeManagerModules);
 
@@ -41,21 +40,21 @@ let
             ;
         }
         // extraOSArgs;
-        modules = extraOSModules ++ sharedOSModules;
-      };
-
-      homeConfigurations."${user}@${host}" = inputs.home-manager.lib.homeManagerConfiguration {
-        pkgs = nixpkgs.legacyPackages."x86_64-linux";
-        extraSpecialArgs = {
-          inherit
-            inputs
-            self
-            host
-            user
-            ;
-        }
-        // extraHomeArgs;
-        modules = extraHomeModules ++ sharedHomeModules;
+        modules = sharedOSModules ++ extraOSModules ++ [
+	  inputs.home-manager.nixosModules.home-manager
+	  {
+	    home-manager.extraSpecialArgs = {
+	      inherit inputs self host user;
+	    } // extraHomeArgs;
+	    home-manager.useGlobalPkgs = true;
+	    home-manager.useUserPackages = true;
+	    home-manager.users.${user} = {
+	      imports = 
+	        sharedHomeModules
+		++ extraHomeModules;
+	    };
+	  }
+	];
       };
     };
 
