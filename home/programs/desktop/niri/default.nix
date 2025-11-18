@@ -40,12 +40,26 @@
 	  };
 	};
         binds = with config.lib.niri.actions; {
+	  # terminal
           "Mod+Return".action = spawn "kitty";
-          # "Mod+Shift+Return".action = spawn [
-          #   "ghostty"
-          #   "--launched-from=desktop"
-          # ];
-          "Mod+P".action = spawn "fuzzel";
+	  # launcher
+          "Mod+Z".action = spawn "fuzzel";
+	  # Focus navigation
+	  "Mod+Left".action = focus-column-left;
+	  "Mod+Right".action = focus-column-right;
+	  "Mod+Up".action = focus-window-up;
+	  "Mod+Down".action = focus-window-down;
+	  "Mod+H".action = focus-column-left;
+	  "Mod+L".action = focus-column-right;
+	  "Mod+K".action = focus-window-up;
+	  "Mod+J".action = focus-window-down;
+	   # Workspace switching
+	  "Mod+1".action = focus-workspace "1";
+	  "Mod+2".action = focus-workspace "2";
+	  "Mod+3".action = focus-workspace "3";
+	  "Mod+4".action = focus-workspace "4";
+	  # Close window
+	  "Mod+Shift+Q".action = close-window;
         };
         window-rules =
           let
