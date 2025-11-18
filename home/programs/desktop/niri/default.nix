@@ -34,11 +34,11 @@
           GTK_IM_MODULE = "fcitx";
           QT_IM_MODULE = "fcitx";
         };
-        outputs = builtins.mapAttrs (name: value: {
-          inherit (value) scale mode position;
-          transform.rotation = value.rotation;
-          background-color = base01;
-        }) config.monitors;
+        outputs = {
+	  "HDMI-A-1" = {
+	    scale = 1.0;
+	  };
+	};
         binds = with config.lib.niri.actions; {
           "Mod+Return".action = spawn "kitty";
           # "Mod+Shift+Return".action = spawn [
@@ -71,12 +71,7 @@
             {
               matches = matchAppIDs [
                 "firefox"
-                "org.qutebrowser.qutebrowser"
                 "kitty"
-                "evince"
-                "zathura"
-                "Zotero"
-                "RStudio"
               ];
               default-column-width = {
                 proportion = 0.95;
