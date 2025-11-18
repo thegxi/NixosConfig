@@ -45,12 +45,7 @@
           #   "ghostty"
           #   "--launched-from=desktop"
           # ];
-          "Mod+P".action = spawn [
-            "sh"
-            "-c"
-            "$(tofi-run)"
-          ];
-          "Mod+Shift+C".action = spawn "/home/${user}/scripts/tofi/colorscheme";
+          "Mod+P".action = spawn "fuzzel";
         };
         window-rules =
           let
