@@ -2,7 +2,7 @@
 
 {
   imports = [
-    #./options.nix
+    ./options.nix
   ];
   programs.nixvim = {
     enable = true;
