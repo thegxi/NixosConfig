@@ -15,6 +15,7 @@ let
   sharedHomeModules = [
     ../home
     #inputs.stylix.homeModules.stylix
+    inputs.nixvim.homeManagerModules.nixvim
   ]
   ++ (builtins.attrValues self.homeManagerModules);
 

@@ -1,5 +1,6 @@
 {
   imports = [
+    ./coding
     ./desktop
     ./terminal
   ];
