@@ -6,6 +6,7 @@
 {
   programs.nixvim = {
     enable = true;
+    plugins.web-devicons.enable = true;
     imports = [
       ./bufferline.nix
       ./keymaps.nix
