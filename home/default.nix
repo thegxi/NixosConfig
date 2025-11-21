@@ -5,8 +5,8 @@
 }:
 {
   imports = [
+    ./fastfetch
     ./programs
-    #./stylix.nix
   ];
 
   home = {

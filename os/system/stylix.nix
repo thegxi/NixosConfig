@@ -1,7 +1,5 @@
 {
-  self,
-  lib,
-  host,
+  pkgs,
   user,
   ...
 }:
@@ -26,6 +24,18 @@
       base0D = "62d6e8";
       base0E = "b45bcf";
       base0F = "00f769";
+    };
+    fonts = {
+      monospace = {
+        # 使用 NF-CN 变体
+        package = pkgs.maple-mono.NF-CN;
+        name = "Maple Mono NF CN";
+      };
+
+      emoji = {
+        package = pkgs.symbols-nerd-font;
+        name = "Symbols Nerd Font";
+      };
     };
 
     image = "/home/${user}/Pictures/wallpapers/zaney-wallpaper.jpg";
