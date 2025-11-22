@@ -16,6 +16,7 @@ let
     ../home
     #inputs.stylix.homeModules.stylix
     inputs.nixvim.homeModules.nixvim
+    inputs.caelestia-shell.homeManagerModules.default
   ]
   ++ (builtins.attrValues self.homeManagerModules);
 

@@ -64,5 +64,8 @@
     };
     home-manager.enable = true;
   };
+  programs.caelestia = {
+    enable = true;
+  };
   fonts.fontconfig.enable = false;
 }

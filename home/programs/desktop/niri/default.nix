@@ -7,7 +7,7 @@
 }:
 {
   imports = [
-    ./waybar.nix
+    #./waybar.nix
   ];
   programs.niri = {
     settings =
@@ -35,31 +35,27 @@
           QT_IM_MODULE = "fcitx";
         };
         outputs = {
-	  "HDMI-A-1" = {
-	    scale = 1.0;
-	  };
-	};
+          "HDMI-A-1" = {
+            scale = 1.0;
+          };
+        };
         binds = with config.lib.niri.actions; {
-	  # terminal
+          # terminal
           "Mod+Return".action = spawn "kitty";
-	  # launcher
+          # launcher
           "Mod+Z".action = spawn "fuzzel";
-	  # Focus navigation
-	  "Mod+Left".action = focus-column-left;
-	  "Mod+Right".action = focus-column-right;
-	  "Mod+Up".action = focus-window-up;
-	  "Mod+Down".action = focus-window-down;
-	  "Mod+H".action = focus-column-left;
-	  "Mod+L".action = focus-column-right;
-	  "Mod+K".action = focus-window-up;
-	  "Mod+J".action = focus-window-down;
-	   # Workspace switching
-	  "Mod+1".action = focus-workspace "1";
-	  "Mod+2".action = focus-workspace "2";
-	  "Mod+3".action = focus-workspace "3";
-	  "Mod+4".action = focus-workspace "4";
-	  # Close window
-	  "Mod+Shift+Q".action = close-window;
+          # Focus navigation
+          "Mod+H".action = focus-column-left;
+          "Mod+L".action = focus-column-right;
+          "Mod+K".action = focus-window-up;
+          "Mod+J".action = focus-window-down;
+          # Workspace switching
+          "Mod+1".action = focus-workspace "1";
+          "Mod+2".action = focus-workspace "2";
+          "Mod+3".action = focus-workspace "3";
+          "Mod+4".action = focus-workspace "4";
+          # Close window
+          "Mod+Shift+Q".action = close-window;
         };
         window-rules =
           let
@@ -143,7 +139,8 @@
             name = "browsing";
           };
           "3" = {
-	    open-on-output = if otherMonitorsNames == [] then mainMonitorName else builtins.head otherMonitorsNames;
+            open-on-output =
+              if otherMonitorsNames == [ ] then mainMonitorName else builtins.head otherMonitorsNames;
             name = "reading";
           };
           "4" = {
