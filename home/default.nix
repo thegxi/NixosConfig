@@ -66,6 +66,7 @@
   };
   programs.caelestia = {
     enable = true;
+    systemd.enable = true;
   };
   fonts.fontconfig.enable = false;
 }

@@ -10,5 +10,6 @@
     swaybg
     xwayland-satellite
     wmname
+    inputs.quickshell.packages.${pkgs.system}.default
   ];
 }
